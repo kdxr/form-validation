@@ -24,36 +24,28 @@ export default function From({}: Props) {
 	const confirmPasswordErrorMsg = useRef<RefType["smallElement"]>(null);
 
 	useEffect(() => {
-		if (useNameErrorMsg?.current) {
-			if (userName !== "" && userName.length < 8) {
-				useNameErrorMsg.current.textContent =
-					"กรุณากรอกชื่อผู้ใช้มากกว่า 8 ตัวอักษร";
-			} else useNameErrorMsg.current.textContent = null;
-		}
+		if (userName !== "" && userName.length < 8)
+			useNameErrorMsg.current!.textContent =
+				"กรุณากรอกชื่อผู้ใช้มากกว่า 8 ตัวอักษร";
+		else useNameErrorMsg.current!.textContent = null;
 	}, [userName]);
 
 	useEffect(() => {
-		if (emailErrorMsg?.current) {
-			if (email !== "" && !email.includes("@")) {
-				emailErrorMsg.current.textContent = "รูปแบบ Email ไม่ถูกต้อง";
-			} else emailErrorMsg.current.textContent = null;
-		}
+		if (email !== "" && !email.includes("@"))
+			emailErrorMsg.current!.textContent = "รูปแบบ Email ไม่ถูกต้อง";
+		else emailErrorMsg.current!.textContent = null;
 	}, [email]);
 
 	useEffect(() => {
-		if (passwordErrorMsg?.current) {
-			if (password !== "" && password.length < 8) {
-				passwordErrorMsg.current.textContent = "รหัสผ่านต้องมีอย่างน้อย 8";
-			} else passwordErrorMsg.current.textContent = null;
-		}
+		if (password !== "" && password.length < 8) {
+			passwordErrorMsg.current!.textContent = "รหัสผ่านต้องมีอย่างน้อย 8";
+		} else passwordErrorMsg.current!.textContent = null;
 	}, [password]);
 
 	useEffect(() => {
-		if (confirmPasswordErrorMsg?.current) {
-			if (confirmPassword !== "" && password !== confirmPassword) {
-				confirmPasswordErrorMsg.current.textContent = "รหัสผ่านไม่ตรงกัน";
-			} else confirmPasswordErrorMsg.current.textContent = null;
-		}
+		if (confirmPassword !== "" && password !== confirmPassword) {
+			confirmPasswordErrorMsg.current!.textContent = "รหัสผ่านไม่ตรงกัน";
+		} else confirmPasswordErrorMsg.current!.textContent = null;
 	}, [confirmPassword]);
 
 	const submit = (e: FormEvent) => {
